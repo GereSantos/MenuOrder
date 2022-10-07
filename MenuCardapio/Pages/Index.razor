@@ -1,0 +1,79 @@
+﻿@page "/"
+
+<h3>Cardápio Menu</h3>
+
+<table>
+    <tr class="border">
+        <th class="border text-center">Código</th>
+        <th class="border text-center">   Específicação</th>
+        <th class="border text-center">Preço</th>
+    </tr>
+
+    <tr class="border">
+        <th class="border text-center">1</th>
+        <th class="border text-center">C. Quente</th>
+        <th class="border text-center">R$4.00</th>
+    </tr>
+    <tr class="border">
+        <th class="border text-center">2</th>
+        <th class="border text-center">X- Salada</th>
+        <th class="border text-center ">R$4.50</th>
+    </tr>
+     <tr class="border">
+        <th class="border text-center">3</th>
+        <th class="border text-center">X- Bacon</th>
+        <th class="border text-center">R$5.00</th>
+    </tr>
+     <tr class="border">
+        <th class="border text-center">4</th>
+        <th class="border text-center">Torrada Simples</th>
+        <th class="border text-center">R$2.00</th>
+    </tr>
+     <tr class="border">
+        <th class="border text-center">5</th>
+        <th class="border text-center">Refrigerante</th>
+        <th class="border text-center">R$1.50</th>
+    </tr>
+
+
+    
+</table>
+
+    <label>Insira o código do pedido:</label>
+    <input type="number" @bind="cod" />
+
+    <label>Insira a quantidade do pedido:</label>
+    <input type="number" @bind="qtd" />
+
+    <br />
+
+    <p>Total: R$@total</p>
+
+    <div>
+        <button @onclick="CheckTotal" class="btn btn-primary">Clique aqui para saber o total</button>
+    </div>
+
+@code{
+    int cod, qtd;
+    double total;
+
+    void CheckTotal()
+    {
+        if(cod == 1)
+        {
+            total = qtd * 4.00;
+        }else if(cod == 2)
+        {
+            total = qtd * 4.50;
+        }else if(cod == 3)
+        {
+            total = qtd * 5.00;
+        }else if(cod == 4)
+        {
+            total = qtd * 2.00;
+        }else if(cod == 5)
+        {
+            total = qtd * 1.50;
+        }
+    }
+}
